@@ -1,0 +1,33 @@
+<nav class="navbar">
+  <div class="container">
+    <a href="/" class="brand">SmartTools</a>
+    <ul class="nav-links">
+      {% comment %} <li><a href="/">Home</a></li>
+      <li><a href="/youtube/">YouTube</a></li>
+      <li><a href="//">Image</a></li>
+      <li><a href="/pdf/">PDF</a></li>
+      {% endcomment %}
+     <li><a href="{% url 'home' %}">Home</a></li>
+    <li><a href="#blog-section">Blog</a></li>
+
+
+    <li><a href="{% url 'youtube_downloader' %}">YouTube</a></li>
+    <li><a href="{% url 'image_compress' %}">Image</a></li>
+    <li><a href="{% url 'pdf_compress' %}">PDF</a></li>
+    <li><a href="#" onclick="showDevMessage(event)">Instagram</a></li>
+
+      {% if user.is_authenticated and user.is_superuser %}
+        <li><a href="/admin-panel/">Dashboard</a></li>
+        <li><a href="/logout/">Logout</a></li>
+      {% else %}
+        <li><a href="/login/">Login</a></li>
+      {% endif %}
+    </ul>
+  </div>
+</nav>
+<script>
+  function showDevMessage(e) {
+    e.preventDefault();
+    alert("🚧 This tool is under development. Stay tuned!");
+  }
+</script>

@@ -1,0 +1,49 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: #ffffff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  padding: 0.8rem 1.5rem;
+  z-index: 1000;
+  margin-bottom: 0;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.brand {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #007BFF;
+  text-decoration: none;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: 0.3s;
+  padding: 6px 10px;
+  border-radius: 4px;
+}
+
+.nav-links li a:hover {
+  background-color: #e0ecff;
+  color: #007BFF;
+}
+
+.main-content {
+  padding-top: 20px; /* because navbar is fixed */
+}

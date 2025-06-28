@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'ytdownloader/ytdownloader.css' %}">
+
+<section class="compressor-wrapper">
+  <div class="ad-slot left-ad"  style="background-color: transparent;"><p></p></div>
+
+  <div class="compressor-section">
+    <div class="compressor-container">
+      <h2>🎥 YouTube Video Downloader</h2>
+
+      <form method="post" id="ytForm">
+        {% csrf_token %}
+        <div class="file-upload-group">
+          <input type="url" name="video_url" id="ytInput" placeholder="Paste YouTube link here..." required class="upload-input" value="{{ video_url|default:'' }}">
+        </div>
+
+        <div style="display: flex; gap: 10px; margin-top: 10px;">
+          <button type="button" class="compress-btn" onclick="pasteFromClipboard()">📋 Paste Link</button>
+          <button type="button" class="compress-btn" onclick="clearInput()">🧹 Clear</button>
+        </div>
+
+        <label for="format_select" class="compress-label" style="margin-top: 20px; display: block;">Choose Format:</label>
+        <select name="video_format" id="format_select" required class="compression-select">
+          <option value="360p" {% if video_format == '360p' %}selected{% endif %}>360p</option>
+          <option value="720p" {% if video_format == '720p' %}selected{% endif %}>720p</option>
+          <option value="1080p" {% if video_format == '1080p' %}selected{% endif %}>1080p</option>
+          <option value="audio" {% if video_format == 'audio' %}selected{% endif %}>Audio Only</option>
+        </select>
+
+        <button type="submit" class="compress-btn download-btn">📋 Get Video Info</button>
+      </form>
+
+      {% if video_title %}
+        <div class="tool-info">
+          <p><strong>🎬 Title:</strong> {{ video_title }}</p>
+          <p><strong>📺 Format:</strong> {{ video_format }}</p>
+          <p><strong>📦 Size:</strong> {{ video_size }}</p>
+
+          <div style="text-align: center;">
+                {% comment %} <a href="?download={{ video_url|urlencode }}&format={{ video_format }}"
+   class="yt-download-btn"
+   id="downloadNow"
+   onclick="showDownloadLoader(event)">
+  ⬇️ <span id="downloadText">Download Now</span>
+  <span class="spinner" id="downloadSpinner" style="display: none;"></span>
+</a> {% endcomment %}
+
+
+<a href="?download={{ video_url|urlencode }}&format={{ video_format }}" class="yt-download-btn" id="ytDownloadLink">
+  📥 Download Now
+</a>
+
+<div id="ytSpinner" class="yt-spinner" style="display: none;">
+  ⏳ Downloading...
+</div>
+          </div>
+
+        </div>
+
+      {% endif %}
+
+      {% if error %}
+        <div class="tool-info" style="background-color: #ffeaea; border-left: 5px solid #e74c3c;">
+          <p style="color: #c0392b;"><strong>{{ error }}</strong></p>
+        </div>
+      {% endif %}
+
+      <div class="tool-info">
+        <h3>📘 How to Use:</h3>
+        <ol>
+          <li>Paste the YouTube link</li>
+          <li>Select format</li>
+          <li>Click “Get Video Info”</li>
+          <li>Then click “Download Now”</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+
+  <div class="ad-slot right-ad" style="background-color: transparent;"><p></p></div>
+</section>
+
+<div class="bottom-banner-ad"  style="background-color: transparent;"
+><p>Place for Adsense or promotional banner</p></div>
+
+<script>
+  const input = document.getElementById('ytInput');
+
+  function pasteFromClipboard() {
+    navigator.clipboard.readText().then(text => {
+      input.value = text;
+    });
+  }
+
+  function clearInput() {
+    input.value = '';
+    window.location.href = window.location.pathname;
+  }
+const downloadLink = document.getElementById('ytDownloadLink');
+  const spinner = document.getElementById('ytSpinner');
+
+  downloadLink.addEventListener('click', function () {
+    spinner.style.display = 'block';
+
+    setTimeout(() => {
+      spinner.style.display = 'none';
+    }, 5000); // Hide after 5 seconds
+  });
+  
+</script>
+{% endblock %}

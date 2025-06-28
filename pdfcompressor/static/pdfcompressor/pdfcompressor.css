@@ -1,0 +1,124 @@
+/* 🔧 Main Tool Layout */
+.compressor-wrapper {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 40px 20px;
+  background: #f9f9f9;
+}
+
+.ad-slot {
+  width: 150px;
+  height: auto;
+   background-color: transparent;
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px; 
+}
+
+/* 🧰 Tool Section */
+.compressor-section {
+  flex: 1;
+  max-width: 700px;
+  background: #fff;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
+}
+
+.compressor-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 28px;
+}
+
+/* 📄 Upload Input */
+.upload-input {
+  width: 100%;
+  padding: 14px;
+  border: 2px solid #ccc;
+  border-radius: 12px;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+/* 🧼 & 🗜 Buttons */
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.clear-btn,
+.compress-btn {
+  flex: 1;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.clear-btn {
+  background-color: #ff4d4d;
+}
+
+.clear-btn:hover {
+  background-color: #e63939;
+}
+
+.compress-btn {
+  background-color: #007bff;
+}
+
+.compress-btn:hover {
+  background-color: #0056b3;
+}
+
+/* 📘 Info Section */
+.info-box {
+  background: #eafaf1;
+  padding: 16px 20px;
+  margin: 20px 0;
+  border-left: 5px solid #28a745;
+  border-radius: 10px;
+}
+
+.info-box h3 {
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+.info-box ol {
+  padding-left: 20px;
+  color: #444;
+}
+
+/* ⚠️ & ✅ Messages */
+.error-text {
+  color: red;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.success-text {
+  color: green;
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* 🔻 Bottom Ad */
+.bottom-banner-ad {
+  text-align: center;
+  margin: 30px auto 0;
+  padding: 20px;
+  background-color: #f3f3f3;
+  border-top: 1px solid #ccc;
+  font-size: 15px;
+  color: #555;
+  border-radius: 0 0 15px 15px;
+}

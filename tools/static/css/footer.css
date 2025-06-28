@@ -1,0 +1,119 @@
+.site-footer {
+  background-color: #1d1f27;
+  color: #fff;
+  padding: 40px 20px 20px;
+  font-family: 'Segoe UI', sans-serif;
+
+  /* 🧠 Improve clarity */
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: auto;
+  gap: 20px;
+}
+
+.footer-left h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #00d1ff;
+}
+
+.footer-left p,
+.footer-left a {
+  font-size: 1rem;
+  color: #f1f1f1;
+  margin: 5px 0;
+  text-decoration: none;
+}
+
+.footer-right ul li a {
+  font-size: 0.95rem;
+  color: #ccc;
+  text-decoration: none;
+}
+
+.footer-left a:hover,
+.footer-right a:hover {
+  color: #00d1ff;
+}
+
+.social-icons {
+  display: flex;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+/* 🎯 Base Icon Style */
+.social-icons .icon {
+  width: 28px;
+  height: 28px;
+  transition: transform 0.2s ease, filter 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0.85;
+  filter: none;
+  border-radius: 6px;
+  padding: 2px;
+  background-color: transparent;
+}
+
+/* ❤️ YouTube Hover */
+.social-icons a[href*="youtube"]:hover .icon {
+  background-color: #FF0000;
+  box-shadow: 0 0 6px #FF0000;
+  opacity: 1;
+}
+
+/* 💖 Instagram Hover */
+.social-icons a[href*="instagram"]:hover .icon {
+  background-color: #E1306C;
+  box-shadow: 0 0 6px #E1306C;
+  opacity: 1;
+}
+
+/* 🖤 GitHub Hover */
+.social-icons a[href*="github"]:hover .icon {
+  background-color: #181717;
+  box-shadow: 0 0 6px #181717;
+  opacity: 1;
+}
+
+/* 🚀 Scale on hover */
+.social-icons .icon:hover {
+  transform: scale(1.1);
+}
+
+/* 📚 Footer Nav */
+.footer-right h3 {
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+  color: #fff;
+}
+
+.footer-right ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-right ul li {
+  margin: 6px 0;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.85rem;
+  color: #888;
+}
+
+/* 📱 Responsive */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

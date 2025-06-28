@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'imagecompressor/imagecompressor.css' %}">
+
+<section class="img-tool-wrapper">
+
+  <!-- 🟧 Left Ad Space -->
+  <div class="img-tool-ad img-tool-left-ad">
+    <p> </p>
+  </div>
+
+  <!-- 🧰 Main Tool Section -->
+  <div class="img-tool-main">
+    <div class="img-tool-box">
+
+      <!-- 📝 Step-by-Step Info -->
+      <div class="img-tool-instructions">
+        <h3>✨ How to Use This Tool:</h3>
+        <ol>
+          <li>Select an image by clicking “Choose File.”</li>
+          <li>Click “Compress” to reduce file size.</li>
+          <li>Use “Clear” if you want to choose another file.</li>
+          <li>Download will be ready instantly!</li>
+        </ol>
+      </div>
+
+      <!-- 🎯 Compressor Form -->
+      <h2>🖼️ Compress Your Image</h2>
+      <form method="post" enctype="multipart/form-data" id="imageForm">
+        {% csrf_token %}
+        <input type="file" name="image" accept="image/*" required class="img-tool-input" id="imageInput">
+
+        <label for="level">Select Compression Level:</label>
+        <select name="level" class="img-tool-input">
+          <option value="low">🟢 Low (Max compression)</option>
+          <option value="medium" selected>🟡 Medium</option>
+          <option value="high">🔵 High (Best quality)</option>
+        </select>
+
+        <div class="img-tool-btn-group">
+          <button type="button" id="clearBtn" class="img-tool-btn clear">❌ Clear</button>
+          <button type="submit" class="img-tool-btn">🗜 Compress</button>
+        </div>
+      </form>
+
+      {% if error %}<p class="img-tool-error">❌ {{ error }}</p>{% endif %}
+      {% if success %}<p class="img-tool-success">✅ {{ success }}</p>{% endif %}
+
+    </div>
+  </div>
+
+  <!-- 🟧 Right Ad Space -->
+  <div class="img-tool-ad img-tool-right-ad">
+    <p></p>
+  </div>
+
+</section>
+
+<!-- 🔻 Bottom Full-Width Ad -->
+<section class="img-tool-bottom-ad">
+  <p>Bottom Ad Slot - Banner</p>
+</section>
+
+<!-- 🧠 Clear JS Logic -->
+<script>
+  const clearBtn = document.getElementById('clearBtn');
+  const imageInput = document.getElementById('imageInput');
+
+  clearBtn.addEventListener('click', () => {
+    imageInput.value = '';
+  });
+
+  // Optional: clear on page reload
+  window.addEventListener('pageshow', () => {
+    imageInput.value = '';
+  });
+</script>
+{% endblock %}

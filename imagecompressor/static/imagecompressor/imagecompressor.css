@@ -1,0 +1,163 @@
+/* 🌐 Overall Wrapper */
+.img-tool-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: stretch; /* 🔥 Keeps all sections same height */
+  padding: 120px 20px 60px;
+  background-color: #f5f8ff;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* 🧲 Left & Right Ad Sections */
+.img-tool-ad {
+  width: 160px;
+  background-color: transparent;
+  border: 1px dashed #ffffff;
+  border-radius: 12px;
+  color: #999;
+  font-size: 0.9rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  height: 100%; /* ✨ Match height of main section */
+  box-sizing: border-box;
+}
+
+/* 🧰 Main Tool Section */
+.img-tool-main {
+  flex: 1;
+  max-width: 600px;
+  min-width: 0;
+}
+
+/* 📦 Main Compressor Box */
+.img-tool-box {
+  background-color: white;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+}
+
+/* 🧾 Instructions Section */
+.img-tool-instructions {
+  background: #eef7ff;
+  padding: 20px;
+  border-left: 5px solid #007bff;
+  border-radius: 8px;
+  margin-bottom: 25px;
+}
+
+.img-tool-instructions h3 {
+  color: #007bff;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+.img-tool-instructions ol {
+  margin: 0;
+  padding-left: 20px;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+/* 📤 File Input & Dropdown */
+.img-tool-input {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #007bff;
+  border-radius: 8px;
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
+/* 🔘 Buttons */
+.img-tool-btn-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.img-tool-btn {
+  width: 100%;
+  background-color: #007bff;
+  color: white;
+  padding: 12px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.img-tool-btn:hover {
+  background-color: #0056b3;
+}
+
+.img-tool-btn.clear {
+  background-color: #dc3545;
+}
+
+.img-tool-btn.clear:hover {
+  background-color: #c82333;
+}
+
+/* ✅ / ❌ Messages */
+.img-tool-error,
+.img-tool-success {
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+
+.img-tool-error {
+  color: #721c24;
+  background-color: #f8d7da;
+}
+
+.img-tool-success {
+  color: #155724;
+  background-color: #d4edda;
+}
+
+/* 🔻 Bottom Ad Banner */
+.img-tool-bottom-ad {
+  margin: 40px auto 20px;
+  max-width: 1200px;
+  padding: 25px;
+  border-radius: 10px;
+  background-color: #f2f2f2;
+  border: 1px dashed #aaa;
+  text-align: center;
+  font-size: 1rem;
+  color: #444;
+}
+
+/* 📱 Responsive Design */
+@media (max-width: 1024px) {
+  .img-tool-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .img-tool-ad {
+    width: 100%;
+    height: 100px;
+    margin-bottom: 20px;
+  }
+
+  .img-tool-main {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .img-tool-ad {
+    display: none; /* Optional: hide ads on small screens */
+  }
+}

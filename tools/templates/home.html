@@ -1,0 +1,151 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+
+<!-- 💙 Hero Section -->
+<section class="hero">
+  <h1>Welcome to Smart Tools Hub</h1>
+  <p>One place for all your online needs — fast, free, and simple.</p>
+  <a href="#tools" class="btn">Explore Tools</a>
+</section>
+
+<!-- 🛠️ Tool Section -->
+<section id="blog-section" class="tool-section">
+  <h2 class="section-title">Our Tools</h2>
+  <div class="tool-grid">
+    <a href="{% url 'youtube_downloader' %}" class="tool-card">YouTube Downloader</a>
+    <a href="{% url 'image_compress'%}" class="tool-card">Image Compressor</a>
+   
+    <a href="{% url 'pdf_compress' %}" class="tool-card">PDF Compressor</a>
+  <a href="#" class="tool-card" onclick="showDevMessage(event)">Instagram Downloader</a>
+
+  </div>
+</section>
+
+{% comment %} Blog section {% endcomment %}
+<!-- 📝 Blog Section -->
+
+<section class="blog-section">
+  <h2 class="section-title">Latest from the Blog</h2>
+  <div class="blog-grid">
+
+    <!-- 📌 Blog Card 1 -->
+    <div class="blog-card">
+      <img src="{% static 'images/blog1.png' %}" alt="SmartTools Intro">
+      <div class="blog-content">
+        <h3>Why We Built SmartTools</h3>
+        <p>In a digital world filled with complicated tools and ads, SmartTools was born to keep things simple and user-friendly...</p>
+        <a href="/blog/why-we-built-smarttools" class="read-more">Read more →</a>
+      </div>
+    </div>
+
+    <!-- 📌 Blog Card 2 -->
+    <div class="blog-card">
+      <img src="{% static 'images/blog2.png' %}" alt="How to Use Tools">
+      <div class="blog-content">
+        <h3>How to Use SmartTools</h3>
+        <p>Copy the link, paste into the tool, hit submit — and boom! No login, no hassle. Just results in seconds...</p>
+        <a href="/blog/how-to-use-tools" class="read-more">Read more →</a>
+      </div>
+    </div>
+
+    <!-- 📌 Blog Card 3 -->
+    <div class="blog-card">
+      <img src="{% static 'images/blog3.png' %}" alt="Coming Features">
+      <div class="blog-content">
+        <h3>What’s Coming Next</h3>
+        <p>New features, smarter tools, better UX. We're working on file converters, drag & drop uploads, and more...</p>
+        <a href="/blog/future-features-preview" class="read-more">Read more →</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- 🌌 Footer -->
+<footer class="site-footer">
+  <div class="footer-container">
+
+    <!-- 🧑 Contact Info -->
+    <div class="footer-left">
+      <h2>Jayesh Gavit</h2>
+      <p>Email: <a href="mailto:gavitjayesh08@gmail.com">gavitjayesh08@gmail.com</a></p>
+      <p>Mobile: <a href="tel:+919420677179">+91 94206 77179</a></p>
+        
+    <div class="social-icons">
+        <a href="https://www.instagram.com/jayeshtechverse" target="_blank" aria-label="Instagram">
+            <span class="material-icons">photo_camera</span>
+        </a>
+        <a href="https://www.youtube.com/@Jayeshverse" target="_blank" aria-label="YouTube">
+            <span class="material-icons">smart_display</span>
+        </a>
+        <a href="https://github.com/jayeshgavit" target="_blank" aria-label="GitHub">
+            <span class="material-icons">code</span>
+        </a>
+    </div>
+
+
+    </div>
+
+    <!-- 🔗 Navigation -->
+    <div class="footer-right">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="#tools">Tools</a></li>
+        <li><a href="#blog">Blog</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 SmartTools Hub. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+  function showDevMessage(event) {
+    event.preventDefault(); // prevent going to /instagram/
+    alert("🚧 Instagram Downloader is under development. Please check back later!");
+  }
+
+  
+
+  // Smooth scroll to sections
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener("click", function(e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute("href"));
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth" });
+      }
+    });
+  });
+
+  // Highlight active link on scroll
+  const sections = document.querySelectorAll("section");
+  const navLinks = document.querySelectorAll("nav a");
+
+  window.addEventListener("scroll", () => {
+    let current = "";
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      if (pageYOffset >= sectionTop - 100) {
+        current = section.getAttribute("id");
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.classList.remove("active");
+      if (link.getAttribute("href") === `#${current}`) {
+        link.classList.add("active");
+      }
+    });
+  });
+</script>
+
+{% endblock %}

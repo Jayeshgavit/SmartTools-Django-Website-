@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'pdfcompressor/pdfcompressor.css' %}">
+
+<section class="compressor-wrapper">
+
+  <!-- ⭠️ Left Ad -->
+  <div class="ad-slot left-ad" style="background-color: transparent;"
+>
+    <p></p>
+  </div>
+
+  <!-- 🔧 Main Compressor Tool -->
+  <div class="compressor-section">
+    <div class="compressor-container">
+      <h2>📄 PDF Compressor</h2>
+
+      <!-- ✅ Tool Steps -->
+      <div class="info-box">
+        <h3>📘 How to Use:</h3>
+        <ol>
+          <li>Select your PDF file</li>
+          <li>Click “Compress” to reduce size</li>
+          <li>Click “Clear” if you want to start again</li>
+          <li>Your file will download automatically</li>
+        </ol>
+      </div>
+
+      <!-- 📄 File Upload -->
+      <form method="post" enctype="multipart/form-data" id="pdfForm">
+        {% csrf_token %}
+        <input type="file" name="pdf_file" accept=".pdf" required id="pdfInput" class="upload-input">
+
+        <div class="button-group">
+          <button type="button" id="clearBtn" class="clear-btn">❌ Clear</button>
+          <button type="submit" class="compress-btn">🗜 Compress</button>
+        </div>
+      </form>
+
+      <!-- 🔔 Response Messages -->
+      <div id="responseMessage" class="success-text" style="display: none;">✅ Download will begin shortly...</div>
+
+      {% if error %}
+        <p class="error-text">❌ {{ error }}</p>
+      {% endif %}
+      {% if success %}
+        <p class="success-text">✅ {{ success }}</p>
+      {% endif %}
+
+    </div>
+  </div>
+
+  <!-- ➡️ Right Ad -->
+  <div class="ad-slot right-ad" style="background-color: transparent;"
+>
+    <p></p>
+  </div>
+
+</section>
+
+<!-- 🗟 Bottom Banner Ad -->
+<div class="bottom-banner-ad">
+  <p>Place for Adsense or promotional banner</p>
+</div>
+
+<!-- 📜 JavaScript -->
+<script>
+  const input = document.getElementById("pdfInput");
+  const clearBtn = document.getElementById("clearBtn");
+  const form = document.getElementById("pdfForm");
+  const responseMsg = document.getElementById("responseMessage");
+
+  clearBtn.addEventListener("click", () => {
+    input.value = '';
+  });
+
+  window.addEventListener('pageshow', () => {
+    input.value = '';
+  });
+
+  form.addEventListener("submit", () => {
+    responseMsg.style.display = 'block';
+    setTimeout(() => {
+      responseMsg.style.display = 'none';
+    }, 5000);
+  });
+</script>
+{% endblock %}
