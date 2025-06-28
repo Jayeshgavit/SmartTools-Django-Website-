@@ -1,7 +1,7 @@
 #Output Images
 
 ## 🎥 Demo Video
-[▶️ Watch Full Demo](https://youtu.be/your-demo-link)
+[▶️ Watch Full Demo](https://youtu.be/)
 
 ---
 
