@@ -19,12 +19,4 @@ SmartTools is a Django-based web project with three tools:
 2. **Image Compressor** – Low/Medium/High compression (PIL)  
 3. **PDF Compressor** – Compresses images inside PDFs using PyMuPDF  
 
-## 🛠️ Run Locally
 
-```bash
-git clone https://github.com/your-username/smarttools.git
-cd smarttools
-python -m venv venv
-venv\Scripts\activate  # Windows
-pip install -r requirements.txt
-python manage.py runserver
